@@ -37,7 +37,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
   return (
     <>
       <Modal
-        title="Preview Form"
+        title="Preview Form1"
         open={isModalOpen}
         width={"80%"}
         footer={null}
