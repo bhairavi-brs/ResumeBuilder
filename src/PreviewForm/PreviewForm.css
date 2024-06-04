@@ -1,0 +1,55 @@
+.preview-container {
+    max-width: 800px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+    padding: 20px;
+    border: 1px solid #dddddd;
+  }
+  
+  .header-section {
+    padding: 20px;
+  }
+  
+  .header-section h1 {
+    margin: 0;
+  }
+  
+  .header-section p {
+    margin: 0;
+  }
+  
+  .header-section img {
+    float: right;
+    margin-right: -3%;
+    margin-top: -23%;
+    width: 150px;
+    max-width: 150px;
+  }
+  
+  .content-section {
+    padding: 20px;
+    padding-top: 0px;
+    background-color: #ffffff;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    border-bottom: 2px solid black;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .project {
+    margin-bottom: 15px;
+  }
+  
+  .project div {
+    font-weight: bold;
+  }
+  
