@@ -5,12 +5,10 @@ import { Margin, usePDF } from "react-to-pdf";
 
 export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
   const ref = useRef();
- 
+
   const { toPDF, targetRef } = usePDF({
     filename: "page.pdf",
-    options: {
-      margin: Margin.MEDIUM// top, right, bottom, left
-    }
+    page: { margin: Margin.LARGE },
   });
   const formatDate = (date) => {
     const options = { year: "numeric", month: "short" };
@@ -59,7 +57,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
             >
               {userDetails.firstName} {userDetails.lastName}
             </h1>
-            <p style={{ margin: "0"}}>{userDetails.designation}</p>
+            <p style={{ margin: "0" }}>{userDetails.designation}</p>
             <p style={{ margin: "0" }}>
               Email:
               <a
@@ -100,7 +98,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
               >
                 <strong>Profile Summary</strong>
               </div>
-              <p style={{lineHeight: '26px'}}>{userDetails.profileSummary}</p>
+              <p style={{ lineHeight: "26px" }}>{userDetails.profileSummary}</p>
             </div>
 
             <div style={{ marginBottom: "20px" }}>
@@ -146,7 +144,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
               ))}
             </div>
 
-            <div style={{ marginBottom: "20px", lineHeight: '30px' }}>
+            <div style={{ marginBottom: "20px", lineHeight: "30px" }}>
               <div
                 style={{
                   fontSize: "18px",
@@ -170,7 +168,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
                     <strong>Number of Members:</strong>
                     {project.numberOfMembers}
                   </p>
-                  <p style={{lineHeight: '26px'}}>
+                  <p style={{ lineHeight: "26px" }}>
                     <strong>Description:</strong> {project.projectDetail}
                   </p>
                 </div>

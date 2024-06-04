@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import mainPicture from '../assets/mainPicture.jpg'
+import mainPicture from "../assets/mainPicture.jpg";
 import { useNavigate } from "react-router-dom";
 import "./FormTest.css";
 
@@ -10,23 +10,23 @@ export const FormTest = () => {
     lastName: "",
     email: "",
     designation: "",
-    profileSummary: ""
+    profileSummary: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); 
+    console.log(formData);
     navigate("/details", {
       state: {
-        formData : formData
+        formData: formData,
       },
     });
   };
@@ -38,11 +38,18 @@ export const FormTest = () => {
         style={{ backgroundImage: `url(${mainPicture})` }}
       ></div>
       <div className="formContainer">
-        <form className="form" onSubmit={handleSubmit}>
+        <form
+          className="form"
+          style={{ marginTop: "4%" }}
+          onSubmit={handleSubmit}
+        >
           <div className="formHeading">
-            <h2 style={{ color: "#125832", margin: "0px" }}>Registration</h2>
-            <p style={{ color: "#9f9f99", margin: "0px" }}>
-              Fill the form to be the part of the team
+            <h2 style={{ color: "#125832", margin: "0px" }}>
+              Create Your Professional Resume
+            </h2>
+            <p style={{ color: "#9f9f99", margin: "0px", fontSize: "medium" }}>
+              Fill in the details to craft a standout resume and step up your
+              career journey.{" "}
             </p>
           </div>
 
@@ -121,10 +128,10 @@ export const FormTest = () => {
               value={formData.profileSummary}
               onChange={handleChange}
               required
-            ></textarea> 
+            ></textarea>
           </div>
 
-          <div className="formButtons">
+          <div className="formButtons" style={{marginTop: '0%'}}>
             <button className="submitButton" type="submit">
               Next
             </button>
