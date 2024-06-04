@@ -8,7 +8,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
 
   const { toPDF, targetRef } = usePDF({
     filename: "page.pdf",
-    page: { margin: Margin.MEDIUM },
+    page: { margin: Margin.SMALL },
   });
   const formatDate = (date) => {
     const options = { year: "numeric", month: "short" };
@@ -98,7 +98,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
               >
                 <strong>Profile Summary</strong>
               </div>
-              <p style={{ lineHeight: "26px" }}>{userDetails.profileSummary}</p>
+              <p>{userDetails.profileSummary}</p>
             </div>
 
             <div style={{ marginBottom: "20px" }}>
@@ -144,7 +144,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
               ))}
             </div>
 
-            <div style={{ marginBottom: "20px", lineHeight: "30px" }}>
+            <div style={{ marginBottom: "20px"}}>
               <div
                 style={{
                   fontSize: "18px",
@@ -156,7 +156,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
                 <strong>Project Details</strong>
               </div>
               {userDetails?.projects?.map((project, index) => (
-                <div key={index} style={{ marginBottom: "15px" }}>
+                <div key={index} style={{ marginBottom: "15px"}}>
                   <strong>Name: {project.projectName}</strong>
                   <p>
                     <strong>Role:</strong> {project.role}
@@ -168,7 +168,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
                     <strong>Number of Members:</strong>
                     {project.numberOfMembers}
                   </p>
-                  <p style={{ lineHeight: "26px" }}>
+                  <p>
                     <strong>Description:</strong> {project.projectDetail}
                   </p>
                 </div>
