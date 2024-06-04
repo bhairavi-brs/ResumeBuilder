@@ -8,7 +8,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
 
   const { toPDF, targetRef } = usePDF({
     filename: "page.pdf",
-    page: { margin: Margin.LARGE },
+    page: { margin: Margin.MEDIUM },
   });
   const formatDate = (date) => {
     const options = { year: "numeric", month: "short" };
