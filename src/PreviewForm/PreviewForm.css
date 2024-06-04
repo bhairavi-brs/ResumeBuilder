@@ -52,4 +52,9 @@
   .project div {
     font-weight: bold;
   }
+
+
+  .preview-container p {
+    line-height: 30px;
+  }
   

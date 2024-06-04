@@ -46,7 +46,6 @@ export const Details = () => {
     if (data?.technicalSkills) {
       data.technicalSkills = data?.technicalSkills.split(",");
     }
-    console.log(data);
 
     setOpenPreviewModal(true);
     setUserDetails({ ...state.formData, ...data });
@@ -64,7 +63,7 @@ export const Details = () => {
           <section className="technicalSkillsSection">
             <div className="sectionHeading">
               <p style={{ color: "#125832", textAlign: "start" }}>
-                Technical Skills
+                Technical Skills*
               </p>
             </div>
             <div className="deleteIconContainer"></div>
@@ -76,6 +75,7 @@ export const Details = () => {
                 name={`technicalSkill`}
                 placeholder="Enter technical skill"
                 {...register(`technicalSkills`)}
+                required
               />
             </div>
           </section>
@@ -141,7 +141,7 @@ export const Details = () => {
                       type="date"
                       id={`startDate${index}`}
                       name={`startDate${index}`}
-                      {...register(`workExperiences[${index}].startDate`)}
+                      {...register(`workExperiences[${index}].startDate`)}  
                     />
                   </div>
                   <div className="formGroup" style={{ width: "48%" }}>

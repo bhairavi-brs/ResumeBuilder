@@ -1,14 +1,17 @@
 import React, { useRef } from "react";
 import { Modal, Button } from "antd";
 import Logo from "../assets/BrickRedLogo.png";
-import { usePDF } from "react-to-pdf";
+import { Margin, usePDF } from "react-to-pdf";
 
 export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
   const ref = useRef();
-
  
-  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
-
+  const { toPDF, targetRef } = usePDF({
+    filename: "page.pdf",
+    options: {
+      margin: Margin.MEDIUM// top, right, bottom, left
+    }
+  });
   const formatDate = (date) => {
     const options = { year: "numeric", month: "short" };
     return new Date(date).toLocaleDateString(undefined, options);
@@ -21,7 +24,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
   return (
     <>
       <Modal
-        title="Preview Form1"
+        title="Preview Form"
         open={isModalOpen}
         width={"80%"}
         footer={null}
@@ -56,7 +59,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
             >
               {userDetails.firstName} {userDetails.lastName}
             </h1>
-            <p style={{ margin: "0" }}>{userDetails.designation}</p>
+            <p style={{ margin: "0"}}>{userDetails.designation}</p>
             <p style={{ margin: "0" }}>
               Email:
               <a
@@ -97,7 +100,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
               >
                 <strong>Profile Summary</strong>
               </div>
-              <p>{userDetails.profileSummary}</p>
+              <p style={{lineHeight: '26px'}}>{userDetails.profileSummary}</p>
             </div>
 
             <div style={{ marginBottom: "20px" }}>
@@ -143,7 +146,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
               ))}
             </div>
 
-            <div style={{ marginBottom: "20px" }}>
+            <div style={{ marginBottom: "20px", lineHeight: '30px' }}>
               <div
                 style={{
                   fontSize: "18px",
@@ -167,7 +170,7 @@ export const PreviewForm = ({ isModalOpen, handleCancel, userDetails }) => {
                     <strong>Number of Members:</strong>
                     {project.numberOfMembers}
                   </p>
-                  <p>
+                  <p style={{lineHeight: '26px'}}>
                     <strong>Description:</strong> {project.projectDetail}
                   </p>
                 </div>
