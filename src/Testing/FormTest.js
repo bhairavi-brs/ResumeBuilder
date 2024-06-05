@@ -45,7 +45,7 @@ export const FormTest = () => {
         >
           <div className="formHeading">
             <h2 style={{ color: "#125832", margin: "0px" }}>
-              // Create Your Professional Resume
+              Create Your Professional Resume
             </h2>
             <p style={{ color: "#9f9f99", margin: "0px", fontSize: "medium" }}>
               Fill in the details to craft a standout resume and step up your
