@@ -1,4 +1,4 @@
-name : CICD ResumeBuilder On Organization Server
+name : ResumeBuilder CI/CD
 
 on:
   push:
@@ -27,4 +27,5 @@ jobs:
           port: 2202
           source: "./build"
           target: "/var/www/resume-builder"
+          rm : true
 
