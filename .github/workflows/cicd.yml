@@ -16,7 +16,8 @@ jobs:
            
       - run : npm ci
       - run : unset CI && npm run build
-      
+
+      - run : set CI = true
       - name: Deploy the build to server
         uses: cross-the-world/scp-pipeline@master
         with:
