@@ -14,10 +14,9 @@ jobs:
         with : 
            node-version : 'v20'
            
-      # - run : npm ci
-      # - run : unset CI && npm run build
-      - run : touch "test.txt"
-
+      - run : npm ci
+      - run : unset CI && npm run build
+      
       - run : set CI = true
       - name: Deploy the build to server
         uses: appleboy/scp-action@v0.1.7
@@ -26,6 +25,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASS }}
           port: 2202
-          source: "./test.txt"
+          source: "./build"
           target: "/var/www/resume-builder"
 
