@@ -16,9 +16,12 @@ jobs:
            
       - run : npm ci
       - run : unset CI && npm run build
-      - run : ls
-
-        
-        
-    
-     
+      
+      - name: Deploy the build to server
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          user: ${{ secrets.SERVER_USER }}
+          pass: ${{ secrets.SERVER_PASS }}
+          local: "./build"
+          remote: /var/www/resume-builder/
