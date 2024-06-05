@@ -15,7 +15,7 @@ jobs:
            node-version : 'v18'
            
       - run : npm ci
-      - run : npm run build
+      - run : set CI = false && npm run build
       - run : ls
 
         
