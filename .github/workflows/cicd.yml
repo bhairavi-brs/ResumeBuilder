@@ -19,10 +19,12 @@ jobs:
 
       - run : set CI = true
       - name: Deploy the build to server
-        uses: cross-the-world/scp-pipeline@master
+        uses: srueda99/scp-action@v12
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          user: ${{ secrets.SERVER_USER }}
-          pass: ${{ secrets.SERVER_PASS }}
-          local: "./build"
-          remote: /var/www/resume-builder/
+            port: 2202
+            host: ${{ secrets.SERVER_HOST }}
+            origin: "./build"
+            destination: "/var/www/resume-builder/"
+            username: ${{ secrets.SERVER_USER }}
+            password: ${{ secrets.SERVER_PASS }}
+
