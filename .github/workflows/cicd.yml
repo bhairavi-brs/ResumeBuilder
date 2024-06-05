@@ -16,16 +16,7 @@ jobs:
            
       - run : npm ci
       - run : npm run build
-
-      - name: Deploy build folder to remote server
-        uses: srueda99/scp-action@v12
-        with:
-            port: 2202
-            host: ${{ secrets.SERVER_ADDRESS }}
-            origin: "./build"
-            destination: "/var/html/resume-builder/"
-            username: ${{ secrets.SERVER_USERNAME }}
-            password: ${{ secrets.SERVER_PASSWORD }}
+      - run : ls
 
         
         
