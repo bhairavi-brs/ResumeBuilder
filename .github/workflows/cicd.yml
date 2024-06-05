@@ -14,8 +14,9 @@ jobs:
         with : 
            node-version : 'v18'
            
-      - run : npm ci
-      - run : unset CI && npm run build
+      # - run : npm ci
+      # - run : unset CI && npm run build
+      - run : mkdir test
 
       - run : set CI = true
       - name: Deploy the build to server
