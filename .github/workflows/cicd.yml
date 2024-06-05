@@ -26,3 +26,4 @@ jobs:
           pass: ${{ secrets.SERVER_PASS }}
           local: "./build"
           remote: /var/www/resume-builder/
+          port: 2202
