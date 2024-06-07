@@ -1,4 +1,4 @@
-name : CICD ResumeBuilder On Organization Server
+name : ResumeBuilder CI/CD
 
 on:
   push:
@@ -12,19 +12,20 @@ jobs:
       - uses : actions/checkout@v2
       - uses : actions/setup-node@v4
         with : 
-           node-version : 'v18'
+           node-version : 'v20'
            
       - run : npm ci
       - run : unset CI && npm run build
-
+      
       - run : set CI = true
       - name: Deploy the build to server
-        uses: srueda99/scp-action@v12
+        uses: appleboy/scp-action@v0.1.7
         with:
-            port: 2202
-            host: ${{ secrets.SERVER_HOST }}
-            origin: "./build"
-            destination: "/var/www/resume-builder/"
-            username: ${{ secrets.SERVER_USER }}
-            password: ${{ secrets.SERVER_PASS }}
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASS }}
+          port: 2202
+          source: "./build"
+          target: "/var/www/resume-builder"
+          rm : true
 
