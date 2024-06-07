@@ -49,7 +49,7 @@ export const FormTest = () => {
             </h2>
             <p style={{ color: "#9f9f99", margin: "0px", fontSize: "medium" }}>
               Fill in the details to craft a standout resume and step up your
-              career journey all here in one.{" "}
+              career journey.{" "}
             </p>
           </div>
 
