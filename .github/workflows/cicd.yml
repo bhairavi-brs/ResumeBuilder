@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASS }}
           script: |
-            docker run -p 8000:80 ${{ secrets.DOCKERHUB_USERNAME }}/resume-builder:latest
+            docker run -p 8000:80 noorbrs/resume-builder:latest
