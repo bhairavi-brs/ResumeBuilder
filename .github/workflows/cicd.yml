@@ -32,4 +32,5 @@ jobs:
           password: ${{ secrets.SERVER_PASS }}
           port: 2202
           script: |
-            docker run -d -p 8000:80 ${{ secrets.DOCKERHUB_USERNAME }}/resume-builder:latest
+            docker stop resume-builder
+            docker run --name resume-builder -d -p 8000:80 ${{ secrets.DOCKERHUB_USERNAME }}/resume-builder:latest
