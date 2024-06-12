@@ -1,6 +1,7 @@
 name : ResumeBuilder CI/CD
 
 on:
+  workflow_dispatch:
   push:
     branches: 
      - main
@@ -23,7 +24,7 @@ jobs:
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/resume-builder:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume-builder:latest
       
-      - name: Deploy to VPS
+      - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -31,4 +32,4 @@ jobs:
           password: ${{ secrets.SERVER_PASS }}
           port: 2202
           script: |
-            docker run -p 8000:80 noorbrs/resume-builder:latest
+            docker run -d -p 8000:80 ${{ secrets.DOCKERHUB_USERNAME }}/resume-builder:latest
